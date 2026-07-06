@@ -1,0 +1,1359 @@
+Starting ParaView...
+/var/spool/slurmd/job55357490/slurm_script
+LD_LIBRARY_PATH=/global/common/software/nersc9/paraview/6.0.0/lib:/global/common/software/nersc9/paraview/6.0.0/lib/paraview-6.0:/global/common/software/nersc9/darshan/default/lib:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/math_libs/12.9/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/extras/CUPTI/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/extras/Debugger/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/nvvm/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/lib64:/opt/cray/pe/papi/7.2.0.2/lib64:/opt/cray/libfabric/1.22.0/lib64:/opt/cray/libfabric/default/lib64
+PATH=/global/common/software/nersc9/paraview/6.0.0/bin:/opt/nersc/pe/bin:/global/common/software/nersc/bin:/global/common/software/nersc9/darshan/default/bin:/global/common/software/nersc9/sqs/2.0/bin:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/compute-sanitizer:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/bin:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/libnvvp:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/profilers/Nsight_Compute:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/profilers/Nsight_Systems/bin:/opt/cray/pe/perftools/25.09.0/bin:/opt/cray/pe/papi/7.2.0.2/bin:/opt/cray/pe/craype/2.7.35/bin:/opt/cray/pe/mpich/9.0.1/ofi/gnu/12.3/bin:/opt/cray/pe/mpich/9.0.1/bin:/opt/cray/pe/gcc-native/14/bin:/opt/cray/libfabric/1.22.0/bin:/global/homes/l/leosyam/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/lib/mit/bin:/usr/lib/mit/sbin:/opt/cray/pe/bin
+PV_HOME=/global/common/software/nersc9/paraview/6.0.0
+PV_NCPUS=4
+PV_NCPUS_PER_SOCKET=4
+PV_LOGIN_PORT=11112
+PV_RENDER_THREADS=1
+PV_LOGIN_HOST=nid51020384
+Connecting to client (reverse connection requested)...
+Connection URL: csrc://nid51020384:11112
+Client connected.
+[0m[33m(   6.893s) [pvserver.0      ]vtkXOpenGLRenderWindow.:1458  WARN| bad X server connection. DISPLAY=[0m
+[0m[33m(   6.893s) [pvserver.2      ]vtkXOpenGLRenderWindow.:1458  WARN| bad X server connection. DISPLAY=[0m
+[0m[33m(   6.893s) [pvserver.3      ]vtkXOpenGLRenderWindow.:1458  WARN| bad X server connection. DISPLAY=[0m
+[0m[33m(   6.893s) [pvserver.1      ]vtkXOpenGLRenderWindow.:1458  WARN| bad X server connection. DISPLAY=[0m
+[0m[31m( 321.112s) [pvserver.0      ]vtkSIProxyDefinitionMan:517    ERR| vtkSIProxyDefinitionManager (0x1091c30): No proxy that matches: group=animation_writers and proxy=MP4Writer were found.[0m
+[0m[31m( 321.112s) [pvserver.1      ]vtkSIProxyDefinitionMan:517    ERR| vtkSIProxyDefinitionManager (0x532d40): No proxy that matches: group=animation_writers and proxy=MP4Writer were found.[0m
+[0m[31m( 321.112s) [pvserver.2      ]vtkSIProxyDefinitionMan:517    ERR| vtkSIProxyDefinitionManager (0x532d40): No proxy that matches: group=animation_writers and proxy=MP4Writer were found.[0m
+[0m[31m( 321.112s) [pvserver.3      ]vtkSIProxyDefinitionMan:517    ERR| vtkSIProxyDefinitionManager (0x532d40): No proxy that matches: group=animation_writers and proxy=MP4Writer were found.[0m
+[0m[31m( 321.112s) [pvserver.1      ]         vtkSIProxy.cxx:311    ERR| vtkSIProxy (0x26d43790): Definition not found for xml_group: animation_writers and xml_name: MP4Writer
+global_id: 13777
+location: 17
+[paraview_protobuf.DefinitionHeader.client_class]: "vtkSMProxy"
+[paraview_protobuf.DefinitionHeader.server_class]: "vtkSIProxy"
+[paraview_protobuf.ProxyState.xml_group]: "animation_writers"
+[paraview_protobuf.ProxyState.xml_name]: "MP4Writer"
+[paraview_protobuf.ProxyState.vtk_classname]: "vtkMP4Writer"
+
+[0m
+[0m[31m( 321.112s) [pvserver.3      ]         vtkSIProxy.cxx:311    ERR| vtkSIProxy (0x2f422440): Definition not found for xml_group: animation_writers and xml_name: MP4Writer
+global_id: 13777
+location: 17
+[paraview_protobuf.DefinitionHeader.client_class]: "vtkSMProxy"
+[paraview_protobuf.DefinitionHeader.server_class]: "vtkSIProxy"
+[paraview_protobuf.ProxyState.xml_group]: "animation_writers"
+[paraview_protobuf.ProxyState.xml_name]: "MP4Writer"
+[paraview_protobuf.ProxyState.vtk_classname]: "vtkMP4Writer"
+
+[0m
+[0m[31m( 321.112s) [pvserver.2      ]         vtkSIProxy.cxx:311    ERR| vtkSIProxy (0x2f5645b0): Definition not found for xml_group: animation_writers and xml_name: MP4Writer
+global_id: 13777
+location: 17
+[paraview_protobuf.DefinitionHeader.client_class]: "vtkSMProxy"
+[paraview_protobuf.DefinitionHeader.server_class]: "vtkSIProxy"
+[paraview_protobuf.ProxyState.xml_group]: "animation_writers"
+[paraview_protobuf.ProxyState.xml_name]: "MP4Writer"
+[paraview_protobuf.ProxyState.vtk_classname]: "vtkMP4Writer"
+
+[0m
+[0m[31m( 321.112s) [pvserver.0      ]         vtkSIProxy.cxx:311    ERR| vtkSIProxy (0x31aea530): Definition not found for xml_group: animation_writers and xml_name: MP4Writer
+global_id: 13777
+location: 17
+[paraview_protobuf.DefinitionHeader.client_class]: "vtkSMProxy"
+[paraview_protobuf.DefinitionHeader.server_class]: "vtkSIProxy"
+[paraview_protobuf.ProxyState.xml_group]: "animation_writers"
+[paraview_protobuf.ProxyState.xml_name]: "MP4Writer"
+[paraview_protobuf.ProxyState.vtk_classname]: "vtkMP4Writer"
+
+[0m
+[0m[31m( 329.042s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "a"
+  }
+}
+
+[0m
+[0m[31m( 329.042s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "a"
+  }
+}
+
+[0m
+[0m[31m( 329.042s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "a"
+  }
+}
+
+[0m
+[0m[31m( 329.042s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "a"
+  }
+}
+
+[0m
+[0m[31m( 329.118s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as"
+  }
+}
+
+[0m
+[0m[31m( 329.119s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as"
+  }
+}
+
+[0m
+[0m[31m( 329.118s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as"
+  }
+}
+
+[0m
+[0m[31m( 329.119s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as"
+  }
+}
+
+[0m
+[0m[31m( 329.135s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;"
+  }
+}
+
+[0m
+[0m[31m( 329.135s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;"
+  }
+}
+
+[0m
+[0m[31m( 329.135s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;"
+  }
+}
+
+[0m
+[0m[31m( 329.135s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;"
+  }
+}
+
+[0m
+[0m[31m( 329.200s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;d"
+  }
+}
+
+[0m
+[0m[31m( 329.199s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;d"
+  }
+}
+
+[0m
+[0m[31m( 329.200s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;d"
+  }
+}
+
+[0m
+[0m[31m( 329.199s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;d"
+  }
+}
+
+[0m
+[0m[31m( 329.239s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;df"
+  }
+}
+
+[0m
+[0m[31m( 329.239s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;df"
+  }
+}
+
+[0m
+[0m[31m( 329.239s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;df"
+  }
+}
+
+[0m
+[0m[31m( 329.239s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;df"
+  }
+}
+
+[0m
+[0m[31m( 329.264s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dfl"
+  }
+}
+
+[0m
+[0m[31m( 329.264s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dfl"
+  }
+}
+
+[0m
+[0m[31m( 329.264s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dfl"
+  }
+}
+
+[0m
+[0m[31m( 329.264s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dfl"
+  }
+}
+
+[0m
+[0m[31m( 329.287s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflk"
+  }
+}
+
+[0m
+[0m[31m( 329.287s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflk"
+  }
+}
+
+[0m
+[0m[31m( 329.287s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflk"
+  }
+}
+
+[0m
+[0m[31m( 329.287s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflk"
+  }
+}
+
+[0m
+[0m[31m( 329.369s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkj"
+  }
+}
+
+[0m
+[0m[31m( 329.369s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkj"
+  }
+}
+
+[0m
+[0m[31m( 329.369s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkj"
+  }
+}
+
+[0m
+[0m[31m( 329.369s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkj"
+  }
+}
+
+[0m
+[0m[31m( 329.465s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkja"
+  }
+}
+
+[0m
+[0m[31m( 329.464s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkja"
+  }
+}
+
+[0m
+[0m[31m( 329.465s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkja"
+  }
+}
+
+[0m
+[0m[31m( 329.464s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkja"
+  }
+}
+
+[0m
+[0m[31m( 329.534s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkjas"
+  }
+}
+
+[0m
+[0m[31m( 329.534s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkjas"
+  }
+}
+
+[0m
+[0m[31m( 329.534s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkjas"
+  }
+}
+
+[0m
+[0m[31m( 329.534s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkjas"
+  }
+}
+
+[0m
+[0m[31m( 329.886s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkja"
+  }
+}
+
+[0m
+[0m[31m( 329.886s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkja"
+  }
+}
+
+[0m
+[0m[31m( 329.886s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkja"
+  }
+}
+
+[0m
+[0m[31m( 329.886s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkja"
+  }
+}
+
+[0m
+[0m[31m( 330.395s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkj"
+  }
+}
+
+[0m
+[0m[31m( 330.395s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkj"
+  }
+}
+
+[0m
+[0m[31m( 330.395s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkj"
+  }
+}
+
+[0m
+[0m[31m( 330.395s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflkj"
+  }
+}
+
+[0m
+[0m[31m( 330.412s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflk"
+  }
+}
+
+[0m
+[0m[31m( 330.412s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflk"
+  }
+}
+
+[0m
+[0m[31m( 330.412s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflk"
+  }
+}
+
+[0m
+[0m[31m( 330.412s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dflk"
+  }
+}
+
+[0m
+[0m[31m( 330.445s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dfl"
+  }
+}
+
+[0m
+[0m[31m( 330.445s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dfl"
+  }
+}
+
+[0m
+[0m[31m( 330.445s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dfl"
+  }
+}
+
+[0m
+[0m[31m( 330.445s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;dfl"
+  }
+}
+
+[0m
+[0m[31m( 330.479s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;df"
+  }
+}
+
+[0m
+[0m[31m( 330.479s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;df"
+  }
+}
+
+[0m
+[0m[31m( 330.479s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;df"
+  }
+}
+
+[0m
+[0m[31m( 330.479s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;df"
+  }
+}
+
+[0m
+[0m[31m( 330.512s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;d"
+  }
+}
+
+[0m
+[0m[31m( 330.512s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;d"
+  }
+}
+
+[0m
+[0m[31m( 330.512s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;d"
+  }
+}
+
+[0m
+[0m[31m( 330.512s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;d"
+  }
+}
+
+[0m
+[0m[31m( 330.546s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;"
+  }
+}
+
+[0m
+[0m[31m( 330.546s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;"
+  }
+}
+
+[0m
+[0m[31m( 330.546s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;"
+  }
+}
+
+[0m
+[0m[31m( 330.546s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as;"
+  }
+}
+
+[0m
+[0m[31m( 331.115s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as"
+  }
+}
+
+[0m
+[0m[31m( 331.115s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as"
+  }
+}
+
+[0m
+[0m[31m( 331.115s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as"
+  }
+}
+
+[0m
+[0m[31m( 331.115s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "as"
+  }
+}
+
+[0m
+[0m[31m( 331.374s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "ass"
+  }
+}
+
+[0m
+[0m[31m( 331.374s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "ass"
+  }
+}
+
+[0m
+[0m[31m( 331.374s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "ass"
+  }
+}
+
+[0m
+[0m[31m( 331.374s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "ass"
+  }
+}
+
+[0m
+[0m[31m( 331.429s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assd"
+  }
+}
+
+[0m
+[0m[31m( 331.429s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assd"
+  }
+}
+
+[0m
+[0m[31m( 331.429s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assd"
+  }
+}
+
+[0m
+[0m[31m( 331.429s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assd"
+  }
+}
+
+[0m
+[0m[31m( 331.487s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdf"
+  }
+}
+
+[0m
+[0m[31m( 331.487s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdf"
+  }
+}
+
+[0m
+[0m[31m( 331.487s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdf"
+  }
+}
+
+[0m
+[0m[31m( 331.487s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdf"
+  }
+}
+
+[0m
+[0m[31m( 331.689s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdfa"
+  }
+}
+
+[0m
+[0m[31m( 331.689s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdfa"
+  }
+}
+
+[0m
+[0m[31m( 331.689s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdfa"
+  }
+}
+
+[0m
+[0m[31m( 331.689s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdfa"
+  }
+}
+
+[0m
+[0m[31m( 331.775s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdfas"
+  }
+}
+
+[0m
+[0m[31m( 331.775s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdfas"
+  }
+}
+
+[0m
+[0m[31m( 331.775s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdfas"
+  }
+}
+
+[0m
+[0m[31m( 331.775s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdfas"
+  }
+}
+
+[0m
+[0m[31m( 331.806s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdfasd"
+  }
+}
+
+[0m
+[0m[31m( 331.806s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdfasd"
+  }
+}
+
+[0m
+[0m[31m( 331.806s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdfasd"
+  }
+}
+
+[0m
+[0m[31m( 331.806s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdfasd"
+  }
+}
+
+[0m
+[0m[31m( 331.897s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdfasdf"
+  }
+}
+
+[0m
+[0m[31m( 331.897s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdfasdf"
+  }
+}
+
+[0m
+[0m[31m( 331.897s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdfasdf"
+  }
+}
+
+[0m
+[0m[31m( 331.897s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "assdfasdf"
+  }
+}
+
+[0m
+[0m[31m( 340.687s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FrameRate"
+  value {
+    type: INT
+    integer: 20
+  }
+}
+
+[0m
+[0m[31m( 340.687s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FrameRate"
+  value {
+    type: INT
+    integer: 20
+  }
+}
+
+[0m
+[0m[31m( 340.687s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FrameRate"
+  value {
+    type: INT
+    integer: 20
+  }
+}
+
+[0m
+[0m[31m( 340.687s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FrameRate"
+  value {
+    type: INT
+    integer: 20
+  }
+}
+
+[0m
+[0m[31m( 341.112s) [pvserver.1      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x26d43790): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "//wsl$/Ubuntu/home/gub/lbl_internship/paraview/allofthepoints_mwahaha.mp4"
+  }
+}
+
+[0m
+[0m[31m( 341.112s) [pvserver.2      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f5645b0): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "//wsl$/Ubuntu/home/gub/lbl_internship/paraview/allofthepoints_mwahaha.mp4"
+  }
+}
+
+[0m
+[0m[31m( 341.112s) [pvserver.3      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x2f422440): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "//wsl$/Ubuntu/home/gub/lbl_internship/paraview/allofthepoints_mwahaha.mp4"
+  }
+}
+
+[0m
+[0m[31m( 341.112s) [pvserver.0      ]         vtkSIProxy.cxx:288    ERR| vtkSIProxy (0x31aea530): Incorrect message received. Missing xml_group and xml_name information.
+global_id: 13777
+location: 17
+[paraview_protobuf.ProxyState.property] {
+  name: "FileName"
+  value {
+    type: STRING
+    txt: "//wsl$/Ubuntu/home/gub/lbl_internship/paraview/allofthepoints_mwahaha.mp4"
+  }
+}
+
+[0m
+[2026-07-01T18:00:18.024] error: *** STEP 55357490.0 ON nid001553 CANCELLED AT 2026-07-01T18:00:18 DUE TO TIME LIMIT ***
+[2026-07-01T18:00:18.025] error: *** JOB 55357490 ON nid001553 CANCELLED AT 2026-07-01T18:00:18 DUE TO TIME LIMIT ***

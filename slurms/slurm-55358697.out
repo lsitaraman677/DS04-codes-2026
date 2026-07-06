@@ -1,0 +1,29 @@
+Starting ParaView...
+/var/spool/slurmd/job55358697/slurm_script
+LD_LIBRARY_PATH=/global/common/software/nersc9/paraview/6.0.0/lib:/global/common/software/nersc9/paraview/6.0.0/lib/paraview-6.0:/global/common/software/nersc9/darshan/default/lib:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/math_libs/12.9/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/extras/CUPTI/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/extras/Debugger/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/nvvm/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/lib64:/opt/cray/pe/papi/7.2.0.2/lib64:/opt/cray/libfabric/1.22.0/lib64:/opt/cray/libfabric/default/lib64
+PATH=/global/common/software/nersc9/paraview/6.0.0/bin:/opt/nersc/pe/bin:/global/common/software/nersc/bin:/global/common/software/nersc9/darshan/default/bin:/global/common/software/nersc9/sqs/2.0/bin:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/compute-sanitizer:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/bin:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/libnvvp:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/profilers/Nsight_Compute:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/profilers/Nsight_Systems/bin:/opt/cray/pe/perftools/25.09.0/bin:/opt/cray/pe/papi/7.2.0.2/bin:/opt/cray/pe/craype/2.7.35/bin:/opt/cray/pe/mpich/9.0.1/ofi/gnu/12.3/bin:/opt/cray/pe/mpich/9.0.1/bin:/opt/cray/pe/gcc-native/14/bin:/opt/cray/libfabric/1.22.0/bin:/global/homes/l/leosyam/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/lib/mit/bin:/usr/lib/mit/sbin:/opt/cray/pe/bin
+PV_HOME=/global/common/software/nersc9/paraview/6.0.0
+PV_NCPUS=4
+PV_NCPUS_PER_SOCKET=4
+PV_LOGIN_PORT=11112
+PV_RENDER_THREADS=1
+PV_LOGIN_HOST=nid51036448
+Connecting to client (reverse connection requested)...
+Connection URL: csrc://nid51036448:11112
+[0m[31m(   1.613s) [pvserver.0      ]vtkSocketCommunicator.c:768    ERR| vtkSocketCommunicator (0x1afd460): Could not receive tag. 1010580540[0m
+[0m[31m(   1.613s) [pvserver.0      ]vtkSocketCommunicator.c:522    ERR| vtkSocketCommunicator (0x1afd460): Endian handshake failed.[0m
+[0m[31m(   1.613s) [pvserver.0      ]vtkTCPNetworkAccessMana:313    ERR| vtkTCPNetworkAccessManager (0x505400): 
+**********************************************************************
+Connection failed during handshake. vtkSocketCommunicator::GetVersion()
+ returns different values on the two connecting processes
+ (Current value: 100).
+**********************************************************************
+[0m
+Exiting...
+Exiting...
+Exiting...
+Exiting...
+[CRAYBLAS_WARNING] Application linked against multiple cray-libsci libraries
+[CRAYBLAS_WARNING] Application linked against multiple cray-libsci libraries
+[CRAYBLAS_WARNING] Application linked against multiple cray-libsci libraries
+[CRAYBLAS_WARNING] Application linked against multiple cray-libsci libraries
