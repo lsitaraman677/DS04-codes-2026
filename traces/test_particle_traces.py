@@ -52,3 +52,4 @@ plt.close('all')
 plt.plot(np.arange(points.shape[0]), points[:, 0])
 
 plt.show()
+

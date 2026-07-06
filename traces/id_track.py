@@ -9,13 +9,14 @@ loaded = False
 try:
     fname = sys.argv[2]
     if fname == 'load':
+        print('loading saved data')
         data1 = np.load(f'{sys.argv[3]}_beam1.npy')
         data2 = np.load(f'{sys.argv[3]}_beam2.npy')
         n_iters, n_particles, _ = data1.shape
         loaded = True
-except:
+except IndexError:
     fname = None
-
+    
 if not loaded:
 
     n_iters = 100
