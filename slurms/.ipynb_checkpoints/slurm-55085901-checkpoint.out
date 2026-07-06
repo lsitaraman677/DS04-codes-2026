@@ -1,0 +1,14 @@
+Starting ParaView...
+/var/spool/slurmd/job55085901/slurm_script
+LD_LIBRARY_PATH=/global/common/software/nersc9/paraview/6.0.0/lib:/global/common/software/nersc9/paraview/6.0.0/lib/paraview-6.0:/global/common/software/nersc9/darshan/default/lib:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/math_libs/12.9/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/extras/CUPTI/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/extras/Debugger/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/nvvm/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/lib64:/opt/cray/pe/papi/7.2.0.2/lib64:/opt/cray/libfabric/1.22.0/lib64:/opt/cray/libfabric/default/lib64
+PATH=/global/common/software/nersc9/paraview/6.0.0/bin:/opt/nersc/pe/bin:/global/common/software/nersc/bin:/global/common/software/nersc9/darshan/default/bin:/global/common/software/nersc9/sqs/2.0/bin:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/compute-sanitizer:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/bin:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/cuda/12.9/libnvvp:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/profilers/Nsight_Compute:/opt/nvidia/hpc_sdk/Linux_x86_64/25.5/profilers/Nsight_Systems/bin:/opt/cray/pe/perftools/25.09.0/bin:/opt/cray/pe/papi/7.2.0.2/bin:/opt/cray/pe/craype/2.7.35/bin:/opt/cray/pe/mpich/9.0.1/ofi/gnu/12.3/bin:/opt/cray/pe/mpich/9.0.1/bin:/opt/cray/pe/gcc-native/14/bin:/opt/cray/libfabric/1.22.0/bin:/global/homes/l/leosyam/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/lib/mit/bin:/usr/lib/mit/sbin:/opt/cray/pe/bin
+PV_HOME=/global/common/software/nersc9/paraview/6.0.0
+PV_NCPUS=1
+PV_NCPUS_PER_SOCKET=64
+PV_LOGIN_PORT=11112
+PV_RENDER_THREADS=1
+PV_LOGIN_HOST=nid51036512
+Connecting to client (reverse connection requested)...
+Connection URL: csrc://nid51036512:11112
+[2026-06-26T17:43:14.907] error: *** STEP 55085901.0 ON nid001689 CANCELLED AT 2026-06-26T17:43:14 DUE TO TIME LIMIT ***
+[2026-06-26T17:43:14.908] error: *** JOB 55085901 ON nid001689 CANCELLED AT 2026-06-26T17:43:14 DUE TO TIME LIMIT ***
