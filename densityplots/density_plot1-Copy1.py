@@ -7,35 +7,34 @@ import cv2
 path = sys.argv[1]
 ts = OpenPMDTimeSeries(path)
 
-width = 250
+width = 500
 height = int(2.4 * width)
 
 iters = ts.iterations
-y, z = ts.get_particle(species = "beam1", var_list = ["y", "z"], iteration = 0)
-y2, z2 = ts.get_particle(species = "beam2", var_list = ["y", "z"], iteration = 0)
-y3, z3 = ts.get_particle(species = "photons", var_list = ["y", "z"], iteration = 0)
-y = np.array(y)
+x, z = ts.get_particle(species = "beam1", var_list = ["x", "z"], iteration = 0)
+x2, z2 = ts.get_particle(species = "beam2", var_list = ["x", "z"], iteration = 0)
+x = np.array(x)
 z = np.array(z)
-y2 = np.array(y2)
+x2 = np.array(x2)
 z2 = np.array(z2)
-miny = min(np.min(y), np.min(y2))
-maxy = max(np.max(y), np.max(y2)) 
+minx = min(np.min(x), np.min(x2))
+maxx = max(np.max(x), np.max(x2)) 
 minz = min(np.min(z), np.min(z2))
 maxz = max(np.max(z), np.max(z2))
 diffz = maxz - minz
-diffy = maxy - miny
+diffx = maxx - minx
 offsetz = 0
-offsety = 0
-miny -= offsety * diffy
-maxy += offsety * diffy
+offsetx = 0
+minx -= offsetx * diffx
+maxx += offsetx * diffx
 minz -= offsetz * diffz
 maxz += offsetz * diffz
 
 fig, ax = plt.subplots()
 
 ax.set_xlim(minz, maxz)
-ax.set_ylim(miny, maxy)
-ax.set_aspect(2.4 * (maxz - minz) / (maxy - miny))
+ax.set_xlim(minx, maxx)
+ax.set_aspect(2.4 * (maxz - minz) / (maxx - minx))
 
 im = None
 
@@ -63,18 +62,18 @@ while not start:
     plt.pause(0.01)
 
 for it in iters:
-    y, z = ts.get_particle(species = "beam1", var_list = ["y", "z"], iteration = it)
-    y2, z2 = ts.get_particle(species = "beam2", var_list = ["y", "z"], iteration = it)
-    y = np.array(y)
+    x, z = ts.get_particle(species = "beam1", var_list = ["x", "z"], iteration = it)
+    x2, z2 = ts.get_particle(species = "beam2", var_list = ["x", "z"], iteration = it)
+    x = np.array(x)
     z = np.array(z)
-    y2 = np.array(y2)
+    x2 = np.array(x2)
     z2 = np.array(z2)
-    y = np.astype((y-miny)/(maxy-miny) * height, np.int32)
+    x = np.astype((x-minx)/(maxx-minx) * height, np.int32)
     z = np.astype((z-minz)/(maxz-minz) * width, np.int32)
-    y2 = np.astype((y2-miny)/(maxy-miny) * height, np.int32)
+    x2 = np.astype((x2-minx)/(maxx-minx) * height, np.int32)
     z2 = np.astype((z2-minz)/(maxz-minz) * width, np.int32)
-    i1 = y * width + z
-    i2 = y2 * width + z2
+    i1 = x * width + z
+    i2 = x2 * width + z2
     i1[i1 >= width * height] = 0
     i1[i1 < 0] = 0
     i2[i2 >= width * height] = 0
@@ -97,7 +96,7 @@ for it in iters:
     im_was_none = False
     if im is None:
         im_was_none = True
-        im = ax.imshow(img, extent=(minz, maxz, miny, maxy), aspect='auto')#, interpolation='bilinear')
+        im = ax.imshow(img, extent=(minz, maxz, minx, maxx), aspect='auto')#, interpolation='bilinear')
     else:
         im.set_data(img)
 

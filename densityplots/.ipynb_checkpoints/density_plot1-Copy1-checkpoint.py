@@ -7,13 +7,12 @@ import cv2
 path = sys.argv[1]
 ts = OpenPMDTimeSeries(path)
 
-width = 250
+width = 500
 height = int(2.4 * width)
 
 iters = ts.iterations
 y, z = ts.get_particle(species = "beam1", var_list = ["y", "z"], iteration = 0)
 y2, z2 = ts.get_particle(species = "beam2", var_list = ["y", "z"], iteration = 0)
-y3, z3 = ts.get_particle(species = "photons", var_list = ["y", "z"], iteration = 0)
 y = np.array(y)
 z = np.array(z)
 y2 = np.array(y2)
