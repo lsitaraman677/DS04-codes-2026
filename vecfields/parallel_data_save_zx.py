@@ -27,7 +27,7 @@ iters = np.arange(0, 501, 4, dtype=np.int32)
 num_pts = 1000
 num_strong = 50
 
-quiver_shape = (16, 12)
+quiver_shape = (10, 30)
 
 if thread == 0:
     print(vecs.iterations)
@@ -49,19 +49,19 @@ if thread == 0:
     print(len(griddata.y))
     print(len(griddata.z))
 
-    xgr = trimshape(griddata.x, (quiver_shape[1],))
-    ygr = trimshape(griddata.y, (quiver_shape[0],))
+    zgr = trimshape(griddata.z, (quiver_shape[1],))
+    xgr = trimshape(griddata.x, (quiver_shape[0],))
 
-    xgr, ygr = np.meshgrid(xgr, ygr, indexing='xy')
+    zgr, xgr = np.meshgrid(zgr, xgr, indexing='xy')
 
-    startz = griddata.z[0]
-    endz = griddata.z[-1]
-    lenz = len(griddata.z)
-    zidx = lambda z: int(((z - startz) / (endz - startz)) * lenz)
+    starty = griddata.y[0]
+    endy = griddata.y[-1]
+    leny = len(griddata.y)
+    yidx = lambda y: int(((y - starty) / (endy - starty)) * leny)
 
     p = lambda s: sys.argv[3] + '/' + s + '.npy'
+    np.save(p('zgr'), zgr)
     np.save(p('xgr'), xgr)
-    np.save(p('ygr'), ygr)
     np.save(p('iters'), iters)
 
     lastiter = round(iters[-1]/5) * 5
@@ -78,8 +78,8 @@ if thread == 0:
     ids2 = candidates2[np.linspace(0, len(candidates2)-1, num_pts//2, dtype=np.int32)]
 
     subsets = np.empty(shape=(n_iters, num_pts, 3))
-    zdiffs = np.empty(shape=(n_iters, num_pts))
-    zranges = np.empty(shape=(n_iters,))
+    ydiffs = np.empty(shape=(n_iters, num_pts))
+    yranges = np.empty(shape=(n_iters,))
     cols = np.empty(shape=(n_iters, num_pts, 3))
     ues = np.empty(shape=(n_iters, *quiver_shape))
     ves = np.empty(shape=ues.shape)
@@ -100,7 +100,7 @@ if thread == 0:
         comm.send(idxtup, dest=i+1, tag=1)
         comm.send(ids1, dest=i+1, tag=101)
         comm.send(ids2, dest=i+1, tag=102)
-        comm.send((startz, endz, lenz), dest=i+1, tag=103)
+        comm.send((starty, endy, leny), dest=i+1, tag=103)
         curstart += cursize
 
     curstart = 0
@@ -108,8 +108,8 @@ if thread == 0:
         cursize = itersperthread[i]
         curend = curstart + cursize
         comm.Recv(subsets[curstart:curend], source=i+1, tag=2)
-        comm.Recv(zdiffs[curstart:curend], source=i+1, tag=3)
-        comm.Recv(zranges[curstart:curend], source=i+1, tag=4)
+        comm.Recv(ydiffs[curstart:curend], source=i+1, tag=3)
+        comm.Recv(yranges[curstart:curend], source=i+1, tag=4)
         comm.Recv(cols[curstart:curend], source=i+1, tag=5)
         comm.Recv(ues[curstart:curend], source=i+1, tag=6)
         comm.Recv(ves[curstart:curend], source=i+1, tag=7)
@@ -119,8 +119,8 @@ if thread == 0:
         curstart = curend
 
     np.save(p('subsets'), subsets)
-    np.save(p('zdiffs'), zdiffs)
-    np.save(p('zranges'), zranges)
+    np.save(p('ydiffs'), ydiffs)
+    np.save(p('yranges'), yranges)
     np.save(p('cols'), cols)
     np.save(p('ues'), ues)
     np.save(p('ves'), ves)
@@ -142,8 +142,8 @@ else:
         sys.exit()
 
     subsets = np.empty(shape=(n_iters, num_pts, 3))
-    zdiffs = np.empty(shape=(n_iters, num_pts))
-    zranges = np.empty(shape=(n_iters,))
+    ydiffs = np.empty(shape=(n_iters, num_pts))
+    yranges = np.empty(shape=(n_iters,))
     cols = np.empty(shape=(n_iters, num_pts, 3))
     ues = np.empty(shape=(n_iters, *quiver_shape))
     ves = np.empty(shape=ues.shape)
@@ -152,8 +152,8 @@ else:
 
     ids1 = comm.recv(source=0, tag=101)
     ids2 = comm.recv(source=0, tag=102)
-    startz, endz, lenz = comm.recv(source=0, tag=103)
-    zidx = lambda z: int(((z - startz) / (endz - startz)) * lenz)
+    starty, endy, leny = comm.recv(source=0, tag=103)
+    yidx = lambda y: int(((y - starty) / (endy - starty)) * leny)
 
     for i in range(start, end):
         idx = i - start
@@ -169,24 +169,24 @@ else:
         curpts1 = curpts1[mask1]
         curpts2 = curpts2[mask2]
         curpts = np.append(curpts1, curpts2, axis=0)
-        idxs = np.argsort(curpts1[:, 2])
-        curpts1 = curpts1[idxs]
-        mididx = curpts1.shape[0]//2
-        midz = curpts1[mididx, 2]
-        zrange = ((curpts1[mididx + num_strong//2, 2] - midz) + (midz - curpts1[mididx - num_strong//2, 2])) / 2
-        zdiff = curpts[:, 2] - midz
+        idxs = np.argsort(curpts[:, 2])
+        curpts = curpts[idxs]
+        mididx = curpts.shape[0]//2
+        midy = curpts[mididx, 1]
+        yrange = (curpts[mididx + num_strong//2, 1] - curpts[mididx - num_strong//2, 1]) / 2
+        ydiff = curpts[:, 1] - midy
         subset = curpts[:, :3]
         col = np.zeros(shape=(num_pts, 3))
         col[:, 0] = curpts[:, 3]
         col[:, 2] = 1 - curpts[:, 3]
-        zi = zidx(midz)
-        ue = trimshape(vecs.get_field(field='E', coord='x', iteration=vecsit)[0][zi], quiver_shape)
-        ve = trimshape(vecs.get_field(field='E', coord='y', iteration=vecsit)[0][zi], quiver_shape)
-        ub = trimshape(vecs.get_field(field='B', coord='x', iteration=vecsit)[0][zi], quiver_shape)
-        vb = trimshape(vecs.get_field(field='B', coord='y', iteration=vecsit)[0][zi], quiver_shape)
+        yi = yidx(midy)
+        ue = trimshape(vecs.get_field(field='E', coord='z', iteration=vecsit)[0][:, yi, :].T, quiver_shape)
+        ve = trimshape(vecs.get_field(field='E', coord='x', iteration=vecsit)[0][:, yi, :].T, quiver_shape)
+        ub = trimshape(vecs.get_field(field='B', coord='z', iteration=vecsit)[0][:, yi, :].T, quiver_shape)
+        vb = trimshape(vecs.get_field(field='B', coord='x', iteration=vecsit)[0][:, yi, :].T, quiver_shape)
         subsets[idx] = subset
-        zdiffs[idx] = zdiff
-        zranges[idx] = zrange
+        ydiffs[idx] = ydiff
+        yranges[idx] = yrange
         cols[idx] = col
         ues[idx] = ue
         ves[idx] = ve
@@ -194,8 +194,8 @@ else:
         vbs[idx] = vb
 
     comm.Send(subsets, dest=0, tag=2)
-    comm.Send(zdiffs, dest=0, tag=3)
-    comm.Send(zranges, dest=0, tag=4)
+    comm.Send(ydiffs, dest=0, tag=3)
+    comm.Send(yranges, dest=0, tag=4)
     comm.Send(cols, dest=0, tag=5)
     comm.Send(ues, dest=0, tag=6)
     comm.Send(ves, dest=0, tag=7)

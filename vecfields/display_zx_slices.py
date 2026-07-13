@@ -9,10 +9,10 @@ print('loading saved data')
 load = lambda s: np.load(sys.argv[1] + '/' + s + '.npy')
 
 xgr = load('xgr')
-ygr = load('ygr')
+zgr = load('zgr')
 subsets = load('subsets')
-zdiffs = load('zdiffs')
-zranges = load('zranges')
+ydiffs = load('ydiffs')
+yranges = load('yranges')
 cols = load('cols')
 ubs = load('ubs')
 vbs = load('vbs')
@@ -22,8 +22,8 @@ iters = load('iters')
 
 xdiff = xgr[-1, -1] - xgr[0, 0]
 xmin, xmax = xgr[0, 0] - 0.05 * xdiff, xgr[-1, -1] + 0.05 * xdiff
-ydiff = ygr[-1, -1] - ygr[0, 0]
-ymin, ymax = ygr[0, 0] - 0.05 * ydiff, ygr[-1, -1] + 0.05 * ydiff
+zdiff = zgr[-1, -1] - zgr[0, 0]
+zmin, zmax = zgr[0, 0] - 0.05 * zdiff, zgr[-1, -1] + 0.05 * zdiff
 
 quiver_shape = xgr.shape
 
@@ -47,10 +47,10 @@ scatterobj = None
 quiverobj = None
 im = None
 
-ax.set_xlim(xmin, xmax)
-ax.set_ylim(ymin, ymax)
-ax.set_xlabel('x (m)')
-ax.set_ylabel('y (m)')
+ax.set_xlim(zmin, zmax)
+ax.set_ylim(xmin, xmax)
+ax.set_xlabel('z (m)')
+ax.set_ylabel('x (m)')
 #ax.set_aspect('equal')
 ax.set_box_aspect(quiver_shape[0] / quiver_shape[1])
 
@@ -87,20 +87,20 @@ k = 0.05
 i = 0
 emags = np.sqrt(np.square(ues) + np.square(ves))
 bmags = np.sqrt(np.square(ubs) + np.square(vbs))
-extent = (xgr[0, 0], xgr[-1, -1], ygr[0, 0], ygr[-1, -1])
+extent = (zgr[0, 0], zgr[-1, -1], xgr[0, 0], xgr[-1, -1])
 for it in iters:
-    ue, ve, emag, ub, vb, bmag, col, subset, zdiff, zrange = ues[i], ves[i], emags[i], ubs[i], vbs[i], bmags[i], cols[i], subsets[i], zdiffs[i], zranges[i]
-    f = np.sqrt(np.log(1/k)/zrange) * 6
-    decayval = np.exp(-np.square(zdiff * f))
+    ue, ve, emag, ub, vb, bmag, col, subset, ydiff, yrange = ues[i], ves[i], emags[i], ubs[i], vbs[i], bmags[i], cols[i], subsets[i], ydiffs[i], yranges[i]
+    f = np.sqrt(np.log(1/k)) / ydiff
+    decayval = np.exp(-np.square(ydiff * f))
     color = np.append(col, decayval.reshape((col.shape[0], 1)), axis=1)
     if it == 0:
         im = ax.imshow(bmag, extent=extent, aspect='auto', cmap='cool', alpha=0.2, interpolation='bilinear')
         ibar = fig.colorbar(im, ax=ax, location='left', label='Magnetic Field Strength (V/m)')
-        quiverobj = ax.quiver(xgr, ygr, ue, ve, emag, cmap='plasma')
+        quiverobj = ax.quiver(zgr, xgr, ue, ve, emag, cmap='plasma')
         qbar = fig.colorbar(quiverobj, ax=ax, location='right', label='Electric Field Strength (V/m)')
-        scatterobj = ax.scatter(subset[:, 0], subset[:, 1], c=color, s=decayval*5)
+        scatterobj = ax.scatter(subset[:, 2], subset[:, 0], c=color, s=decayval*5)
     else:
-        scatterobj.set_offsets(subset)
+        scatterobj.set_offsets(subset[:, [2, 0]])
         scatterobj.set_facecolors(color)
         scatterobj.set_sizes(decayval*5)
         quiverobj.set_UVC(ue, ve, emag)
