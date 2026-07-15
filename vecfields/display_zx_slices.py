@@ -88,21 +88,24 @@ i = 0
 emags = np.sqrt(np.square(ues) + np.square(ves))
 bmags = np.sqrt(np.square(ubs) + np.square(vbs))
 extent = (zgr[0, 0], zgr[-1, -1], xgr[0, 0], xgr[-1, -1])
+
 for it in iters:
     ue, ve, emag, ub, vb, bmag, col, subset, ydiff, yrange = ues[i], ves[i], emags[i], ubs[i], vbs[i], bmags[i], cols[i], subsets[i], ydiffs[i], yranges[i]
     f = np.sqrt(np.log(1/k)) / ydiff
     decayval = np.exp(-np.square(ydiff * f))
     color = np.append(col, decayval.reshape((col.shape[0], 1)), axis=1)
     if it == 0:
-        im = ax.imshow(bmag, extent=extent, aspect='auto', cmap='cool', alpha=0.2, interpolation='bilinear')
+        im = ax.imshow(bmag, extent=extent, aspect='auto', cmap='cool', alpha=0.4, interpolation='bilinear')
         ibar = fig.colorbar(im, ax=ax, location='left', label='Magnetic Field Strength (V/m)')
         quiverobj = ax.quiver(zgr, xgr, ue, ve, emag, cmap='plasma')
         qbar = fig.colorbar(quiverobj, ax=ax, location='right', label='Electric Field Strength (V/m)')
-        scatterobj = ax.scatter(subset[:, 2], subset[:, 0], c=color, s=decayval*5)
+        #scatterobj = ax.scatter(subset[:, 2], subset[:, 0], c=color, s=decayval*5)
+        scatterobj = ax.scatter(subset[:, 2], subset[:, 0], c=col, s=2)
     else:
         scatterobj.set_offsets(subset[:, [2, 0]])
-        scatterobj.set_facecolors(color)
-        scatterobj.set_sizes(decayval*5)
+        #scatterobj.set_facecolors(color)
+        scatterobj.set_facecolors(col)
+        #scatterobj.set_sizes(decayval*5)
         quiverobj.set_UVC(ue, ve, emag)
         #quiverobj.set_clim(emag.min(), emag.max())
         im.set_data(bmag)

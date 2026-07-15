@@ -26,8 +26,8 @@ maxz = max(np.max(z), np.max(z2), np.max(z3))
 
 diffz = maxz - minz
 diffy = maxy - miny
-offsetz = 0.5
-offsety = 0.5
+offsetz = 0.1
+offsety = 0.1
 miny -= offsety * diffy
 maxy += offsety * diffy
 minz -= offsetz * diffz
@@ -72,8 +72,8 @@ scat3 = ax.scatter([], [], color='green', s=1)
 for it in iters:
     y, z = ts.get_particle(species = "beam1", var_list = ["y", "z"], iteration = it)
     y2, z2 = ts.get_particle(species = "beam2", var_list = ["y", "z"], iteration = it)
-    y3, z3 = ts.get_particle(species = "pho1", var_list = ["y", "z"], iteration = 0)
-    y4, z4 = ts.get_particle(species = "pho2", var_list = ["y", "z"], iteration = 0)
+    y3, z3 = ts.get_particle(species = "pho1", var_list = ["y", "z"], iteration = it)
+    y4, z4 = ts.get_particle(species = "pho2", var_list = ["y", "z"], iteration = it)
     y3 = np.append(np.array(y3), np.array(y4))
     z3 = np.append(np.array(z3), np.array(z4))
 

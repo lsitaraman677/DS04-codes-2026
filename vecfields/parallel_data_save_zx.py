@@ -169,7 +169,7 @@ else:
         curpts1 = curpts1[mask1]
         curpts2 = curpts2[mask2]
         curpts = np.append(curpts1, curpts2, axis=0)
-        idxs = np.argsort(curpts[:, 2])
+        idxs = np.argsort(curpts[:, 1])
         curpts = curpts[idxs]
         mididx = curpts.shape[0]//2
         midy = curpts[mididx, 1]

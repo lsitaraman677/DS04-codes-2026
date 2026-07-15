@@ -73,6 +73,9 @@ if not loaded:
         np.save(f'{fname}_beam1.npy', data1)
         np.save(f'{fname}_beam2.npy', data2)
 
+print(data1.shape)
+print(data2.shape)
+
 import cv2
 vidname = input('enter video name: ')
 
@@ -137,6 +140,7 @@ peroff_e = 0.25
 amp_e = 25
 start_a = -90
 revs_a = 1
+
 for i in range(n_iters):
     scatter1._offsets3d = data1[i, :].T
     scatter2._offsets3d = data2[i, :].T
