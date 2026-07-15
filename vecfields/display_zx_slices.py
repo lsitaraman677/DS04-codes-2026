@@ -21,9 +21,9 @@ ves = load('ves')
 iters = load('iters')
 
 xdiff = xgr[-1, -1] - xgr[0, 0]
-xmin, xmax = xgr[0, 0] - 0.05 * xdiff, xgr[-1, -1] + 0.05 * xdiff
+xmin, xmax = xgr[0, 0] - 0.15 * xdiff, xgr[-1, -1] + 0.15 * xdiff
 zdiff = zgr[-1, -1] - zgr[0, 0]
-zmin, zmax = zgr[0, 0] - 0.05 * zdiff, zgr[-1, -1] + 0.05 * zdiff
+zmin, zmax = zgr[0, 0] - 0.15 * zdiff, zgr[-1, -1] + 0.15 * zdiff
 
 quiver_shape = xgr.shape
 
@@ -41,7 +41,10 @@ if vidname:
 else:
     print('proceding without saving video')
 
-fig, ax = plt.subplots()
+fig = plt.figure()
+ax = fig.add_subplot()
+#ax = fig.add_subplot(2, 1, 1)
+#ax3d = fig.add_subplot(2, 1, 2, projection='3d')
 
 scatterobj = None
 quiverobj = None
@@ -52,7 +55,8 @@ ax.set_ylim(xmin, xmax)
 ax.set_xlabel('z (m)')
 ax.set_ylabel('x (m)')
 #ax.set_aspect('equal')
-ax.set_box_aspect(quiver_shape[0] / quiver_shape[1])
+#ax.set_box_aspect(quiver_shape[0] / quiver_shape[1])
+ax.set_box_aspect(0.63)
 
 legend_elements = [
     matplotlib.lines.Line2D([0], [0], marker='o', color='w', markerfacecolor='blue', markersize=5, label='Beam 1 (electrons)'),
@@ -91,12 +95,15 @@ extent = (zgr[0, 0], zgr[-1, -1], xgr[0, 0], xgr[-1, -1])
 
 for it in iters:
     ue, ve, emag, ub, vb, bmag, col, subset, ydiff, yrange = ues[i], ves[i], emags[i], ubs[i], vbs[i], bmags[i], cols[i], subsets[i], ydiffs[i], yranges[i]
+    fact = np.pow(emag, 0.28) / emag
+    ue *= fact * 1e3
+    ve *= fact
     f = np.sqrt(np.log(1/k)) / ydiff
     decayval = np.exp(-np.square(ydiff * f))
     color = np.append(col, decayval.reshape((col.shape[0], 1)), axis=1)
     if it == 0:
-        im = ax.imshow(bmag, extent=extent, aspect='auto', cmap='cool', alpha=0.4, interpolation='bilinear')
-        ibar = fig.colorbar(im, ax=ax, location='left', label='Magnetic Field Strength (V/m)')
+        #im = ax.imshow(bmag, extent=extent, aspect='auto', cmap='cool', alpha=0.4, interpolation='bilinear')
+        #ibar = fig.colorbar(im, ax=ax, location='left', label='Magnetic Field Strength (V/m)')
         quiverobj = ax.quiver(zgr, xgr, ue, ve, emag, cmap='plasma')
         qbar = fig.colorbar(quiverobj, ax=ax, location='right', label='Electric Field Strength (V/m)')
         #scatterobj = ax.scatter(subset[:, 2], subset[:, 0], c=color, s=decayval*5)
@@ -108,7 +115,7 @@ for it in iters:
         #scatterobj.set_sizes(decayval*5)
         quiverobj.set_UVC(ue, ve, emag)
         #quiverobj.set_clim(emag.min(), emag.max())
-        im.set_data(bmag)
+        #im.set_data(bmag)
     fig.canvas.draw_idle()
     plt.pause(0.01)
     if vidname:

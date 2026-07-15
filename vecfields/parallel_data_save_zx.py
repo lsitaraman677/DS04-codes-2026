@@ -27,7 +27,7 @@ iters = np.arange(0, 501, 4, dtype=np.int32)
 num_pts = 1000
 num_strong = 50
 
-quiver_shape = (10, 30)
+quiver_shape = (7, 30)
 
 if thread == 0:
     print(vecs.iterations)
