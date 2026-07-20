@@ -4,7 +4,6 @@ import sys
 import numpy as np
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
-
 loaded = False
 try:
     fname = sys.argv[2]
@@ -12,6 +11,10 @@ try:
         print('loading saved data')
         data1 = np.load(f'{sys.argv[3]}_beam1.npy')
         data2 = np.load(f'{sys.argv[3]}_beam2.npy')
+        #idx1 = [0, 1, 2, 3, 4, 5, 7, 8]
+        #idx2 = [0, 1, 2, 3, 4, 5, 8, 9]
+        #data1 = data1[:, idx1]
+        #data2 = data2[:, idx2]
         n_iters, n_particles, _ = data1.shape
         loaded = True
 except IndexError:
@@ -90,21 +93,21 @@ minx, maxx = min(np.nanmin(x1), np.nanmin(x2)), max(np.nanmax(x1), np.nanmax(x2)
 miny, maxy = min(np.nanmin(y1), np.nanmin(y2)), max(np.nanmax(y1), np.nanmax(y2))
 minz, maxz = min(np.nanmin(z1), np.nanmin(z2)), max(np.nanmax(z1), np.nanmax(z2))
 
-vecx, vecy, vecz = np.array([maxx - minx, 0, 0]), np.array([0, maxy - miny, 0]), np.array([0, 0, maxz - minz])
-origin = np.array([minx, miny, minz])
-def parapoints(start, v1, v2): return np.array([start, start+v1, start+v1+v2, start+v2])
-faces = [parapoints(origin, vecx, vecy), parapoints(origin, vecx, vecz),
-         parapoints(origin, vecy, vecz), parapoints(origin+vecz, vecx, vecy),
-         parapoints(origin+vecy, vecx, vecz), parapoints(origin+vecx, vecy, vecz)]
-poly = Poly3DCollection(faces, facecolors='gray', edgecolors='black', alpha=0.01)
-ax.add_collection3d(poly)
-ax.set_axis_off()
+#vecx, vecy, vecz = np.array([maxx - minx, 0, 0]), np.array([0, maxy - miny, 0]), np.array([0, 0, maxz - minz])
+#origin = np.array([minx, miny, minz])
+#def parapoints(start, v1, v2): return np.array([start, start+v1, start+v1+v2, start+v2])
+#faces = [parapoints(origin, vecx, vecy), parapoints(origin, vecx, vecz),
+#         parapoints(origin, vecy, vecz), parapoints(origin+vecz, vecx, vecy),
+#         parapoints(origin+vecy, vecx, vecz), parapoints(origin+vecx, vecy, vecz)]
+#poly = Poly3DCollection(faces, facecolors='gray', edgecolors='black', alpha=0.01)
+#ax.add_collection3d(poly)
+#ax.set_axis_off()
 
 #ax.set_xlim(minz*0.02, maxz*0.02)
 #ax.set_ylim(minz*0.002, maxz*0.002)
 ax.set_xlim(minx, maxx)
-ax.set_ylim(miny, maxy)
-ax.set_zlim(minz, maxz)
+ax.set_ylim(miny*2, maxy*2)
+ax.set_zlim(minz*10, maxz*10)
 
 lines1 = [ax.plot([], [], [], c=(0.0, 0.0, 0.0, 0.5))[0] for _ in range(n_particles)]
 lines2 = [ax.plot([], [], [], c=(0.0, 0.0, 0.0, 0.5))[0] for _ in range(n_particles)]
@@ -147,9 +150,9 @@ for i in range(n_iters):
     for j in range(n_particles):
         lines1[j].set_data_3d(data1[:i, j, 0], data1[:i, j, 1], data1[:i, j, 2])
         lines2[j].set_data_3d(data2[:i, j, 0], data2[:i, j, 1], data2[:i, j, 2])
-    e = start_e + np.sin(2*np.pi*(pers_e*(i / n_iters) + peroff_e)) * amp_e
-    a = start_a + (i / n_iters) * 360 * revs_a
-    ax.view_init(elev=e, azim=a)
+    #e = start_e + np.sin(2*np.pi*(pers_e*(i / n_iters) + peroff_e)) * amp_e
+    #a = start_a + (i / n_iters) * 360 * revs_a
+    #ax.view_init(elev=e, azim=a)
     fig.canvas.draw_idle()
     plt.pause(0.01)
     print(f'done with {i} out of {n_iters}')
