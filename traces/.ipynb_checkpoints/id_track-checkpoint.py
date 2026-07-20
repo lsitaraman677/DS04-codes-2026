@@ -93,7 +93,11 @@ def parapoints(start, v1, v2): return np.array([start, start+v1, start+v1+v2, st
 faces = [parapoints(origin, vecx, vecy), parapoints(origin, vecx, vecz),
          parapoints(origin, vecy, vecz), parapoints(origin+vecz, vecx, vecy),
          parapoints(origin+vecy, vecx, vecz), parapoints(origin+vecx, vecy, vecz)]
+<<<<<<< HEAD
 poly = Poly3DCollection(faces, facecolors='gray', edgecolors='gray', alpha=0.01)
+=======
+poly = Poly3DCollection(faces, facecolors='gray', edgecolors='black', alpha=0.01)
+>>>>>>> refs/remotes/origin/main
 ax.add_collection3d(poly)
 ax.set_axis_off()
 
@@ -104,11 +108,19 @@ ax.set_ylim(miny, maxy)
 ax.set_zlim(minz, maxz)
 
 lines1 = [ax.plot([], [], [], c=(0.0, 0.0, 0.0, 0.5))[0] for _ in range(n_particles)]
+<<<<<<< HEAD
 lines2 = [ax.plot([], [], [], c=(0.0, 0.0, 0.0, 0.5))[0] for _ in range(n_particles)] # comment this out to get rid of line paths
 
 dummyarr = lambda: [0 for _ in range(n_particles)]
 scatter1 = ax.scatter(dummyarr(), dummyarr(), dummyarr(), c='blue', s=10)   #comment this out to only have one beam dots
 scatter2 = ax.scatter(dummyarr(), dummyarr(), dummyarr(), c='red', s=10)
+=======
+lines2 = [ax.plot([], [], [], c=(0.0, 0.0, 0.0, 0.5))[0] for _ in range(n_particles)]
+
+dummyarr = lambda: [0 for _ in range(n_particles)]
+scatter1 = ax.scatter(dummyarr(), dummyarr(), dummyarr(), c='red', s=10)
+scatter2 = ax.scatter(dummyarr(), dummyarr(), dummyarr(), c='blue', s=10)
+>>>>>>> refs/remotes/origin/main
 
 plt.ion()
 plt.show()
@@ -138,11 +150,19 @@ amp_e = 25
 start_a = -90
 revs_a = 1
 for i in range(n_iters):
+<<<<<<< HEAD
     scatter1._offsets3d = data1[i, :].T  #also comment this out for beam dots
     scatter2._offsets3d = data2[i, :].T
     for j in range(n_particles):
         lines1[j].set_data_3d(data1[:i, j, 0], data1[:i, j, 1], data1[:i, j, 2])  #comment this out to get rid of beam line paths 
         lines2[j].set_data_3d(data2[:i, j, 0], data2[:i, j, 1], data2[:i, j, 2]) 
+=======
+    scatter1._offsets3d = data1[i, :].T
+    scatter2._offsets3d = data2[i, :].T
+    for j in range(n_particles):
+        lines1[j].set_data_3d(data1[:i, j, 0], data1[:i, j, 1], data1[:i, j, 2])
+        lines2[j].set_data_3d(data2[:i, j, 0], data2[:i, j, 1], data2[:i, j, 2])
+>>>>>>> refs/remotes/origin/main
     e = start_e + np.sin(2*np.pi*(pers_e*(i / n_iters) + peroff_e)) * amp_e
     a = start_a + (i / n_iters) * 360 * revs_a
     ax.view_init(elev=e, azim=a)

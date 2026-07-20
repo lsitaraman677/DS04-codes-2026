@@ -27,7 +27,7 @@ iters = np.arange(0, 501, 4, dtype=np.int32)
 num_pts = 1000
 num_strong = 50
 
-quiver_shape = (16, 12)
+quiver_shape = (12, 9)
 
 if thread == 0:
     print(vecs.iterations)
@@ -80,6 +80,7 @@ if thread == 0:
     subsets = np.empty(shape=(n_iters, num_pts, 3))
     zdiffs = np.empty(shape=(n_iters, num_pts))
     zranges = np.empty(shape=(n_iters,))
+    zmids = np.empty(shape=(n_iters,))
     cols = np.empty(shape=(n_iters, num_pts, 3))
     ues = np.empty(shape=(n_iters, *quiver_shape))
     ves = np.empty(shape=ues.shape)
@@ -110,17 +111,19 @@ if thread == 0:
         comm.Recv(subsets[curstart:curend], source=i+1, tag=2)
         comm.Recv(zdiffs[curstart:curend], source=i+1, tag=3)
         comm.Recv(zranges[curstart:curend], source=i+1, tag=4)
-        comm.Recv(cols[curstart:curend], source=i+1, tag=5)
-        comm.Recv(ues[curstart:curend], source=i+1, tag=6)
-        comm.Recv(ves[curstart:curend], source=i+1, tag=7)
-        comm.Recv(ubs[curstart:curend], source=i+1, tag=8)
-        comm.Recv(vbs[curstart:curend], source=i+1, tag=9)
+        comm.Recv(zmids[curstart:curend], source=i+1, tag=5)
+        comm.Recv(cols[curstart:curend], source=i+1, tag=6)
+        comm.Recv(ues[curstart:curend], source=i+1, tag=7)
+        comm.Recv(ves[curstart:curend], source=i+1, tag=8)
+        comm.Recv(ubs[curstart:curend], source=i+1, tag=9)
+        comm.Recv(vbs[curstart:curend], source=i+1, tag=10)
         print(f'Received data for iterations {iters[curstart]} to {iters[curend-1]} from thread {i+1}')
         curstart = curend
 
     np.save(p('subsets'), subsets)
     np.save(p('zdiffs'), zdiffs)
     np.save(p('zranges'), zranges)
+    np.save(p('zmids'), zmids)
     np.save(p('cols'), cols)
     np.save(p('ues'), ues)
     np.save(p('ves'), ves)
@@ -144,6 +147,7 @@ else:
     subsets = np.empty(shape=(n_iters, num_pts, 3))
     zdiffs = np.empty(shape=(n_iters, num_pts))
     zranges = np.empty(shape=(n_iters,))
+    zmids = np.empty(shape=(n_iters,))
     cols = np.empty(shape=(n_iters, num_pts, 3))
     ues = np.empty(shape=(n_iters, *quiver_shape))
     ves = np.empty(shape=ues.shape)
@@ -192,13 +196,15 @@ else:
         ves[idx] = ve
         ubs[idx] = ub
         vbs[idx] = vb
+        zmids[idx] = midz
 
     comm.Send(subsets, dest=0, tag=2)
     comm.Send(zdiffs, dest=0, tag=3)
     comm.Send(zranges, dest=0, tag=4)
-    comm.Send(cols, dest=0, tag=5)
-    comm.Send(ues, dest=0, tag=6)
-    comm.Send(ves, dest=0, tag=7)
-    comm.Send(ubs, dest=0, tag=8)
-    comm.Send(vbs, dest=0, tag=9)
+    comm.Send(zmids, dest=0, tag=5)
+    comm.Send(cols, dest=0, tag=6)
+    comm.Send(ues, dest=0, tag=7)
+    comm.Send(ves, dest=0, tag=8)
+    comm.Send(ubs, dest=0, tag=9)
+    comm.Send(vbs, dest=0, tag=10)
 

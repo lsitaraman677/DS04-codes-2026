@@ -73,6 +73,9 @@ if not loaded:
         np.save(f'{fname}_beam1.npy', data1)
         np.save(f'{fname}_beam2.npy', data2)
 
+print(data1.shape)
+print(data2.shape)
+
 import cv2
 vidname = input('enter video name: ')
 
@@ -137,6 +140,7 @@ peroff_e = 0.25
 amp_e = 25
 start_a = -90
 revs_a = 1
+
 for i in range(n_iters):
     scatter1._offsets3d = data1[i, :].T  #also comment this out for beam dots
     scatter2._offsets3d = data2[i, :].T
@@ -148,6 +152,7 @@ for i in range(n_iters):
     ax.view_init(elev=e, azim=a)
     fig.canvas.draw_idle()
     plt.pause(0.01)
+    print(f'done with {i} out of {n_iters}')
     if vidname:
         frame = np.asarray(fig.canvas.buffer_rgba())
         frame = cv2.cvtColor(frame, cv2.COLOR_RGBA2BGR)
