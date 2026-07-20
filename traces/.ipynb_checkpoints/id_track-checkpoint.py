@@ -116,7 +116,7 @@ plt.show()
 start = False
 def clicked(event):
     global start
-    if event.button == 3:
+    if event.button == 2:
         start = True
 
 fig.canvas.mpl_connect('button_press_event', clicked)
