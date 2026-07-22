@@ -1,0 +1,36 @@
+# Input file for saving data as a numpy array
+
+# Path to fields (openpmd):
+field_path = /pscratch/sd/l/leosyam/fields/
+
+# Path to particle data (openpmd):
+particle_path = /pscratch/sd/l/leosyam/idealized/diags/particles_in
+
+# Number of iterations, will be chosen as evenly spaced intervals from data
+iters = 50
+
+# Size of fields (xdim, ydim, zdim) tuple
+field_size = (10, 10, 10)
+
+# Max number of points for each species
+pointsizes = {'beam1': 100, 'beam2': 100, 'pho1': 10, 'pho2': 10}
+
+# Properties for each particle
+properties = ('x', 'y', 'z', 'id')
+
+# Base name of file
+
+filename = 'example_name'
+
+
+
+# Data will be saved as follows:
+# <filename>_Efield.npy, <filename>_Bfield.npy -> shape = (iters, field_size[0], field_size[1], field_size[2])
+# <filename>_<first species in pointsizes>.npy -> shape = (iters, pointsizes[<first species>], len(properties))
+# <filename>_<second species in pointsizes>.npy -> shape = (iters, pointsizes[<second speices>], len(properties))
+#                       .
+#                       .
+#                       .
+#                       .
+# <filename>_<last species in pointsizes>.npy -> shape = (iters, pointsizes[<last species>], len(properties))
+
